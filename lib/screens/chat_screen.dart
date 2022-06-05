@@ -21,6 +21,8 @@ class _ChatScreenState extends State<ChatScreen> {
     FirebaseMessaging.onMessage.listen((msg) {
       print(msg);
     });
+    // messaging.getToken();
+    messaging.subscribeToTopic('chat');
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
     super.initState();
   }
@@ -34,6 +36,7 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         actions: [
           DropdownButton(
+            underline: Container(),
             icon: Icon(
               Icons.more_vert,
               color: Theme.of(context).primaryIconTheme.color,
